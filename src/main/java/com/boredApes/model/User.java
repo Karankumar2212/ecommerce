@@ -28,7 +28,6 @@ public class User {
 	private String lastName;
 	private String password;
 	private String email;
-	private String role;
 	private String mobile;
 	
 	@OneToMany(mappedBy="user",cascade=CascadeType.ALL)
@@ -47,7 +46,7 @@ public class User {
 	@OneToMany(mappedBy="user",cascade=CascadeType.ALL)
 	private List<Review>reviews = new ArrayList<>();
 	
-	private LocalDateTime createdAt;
+	private LocalDateTime createdAt = LocalDateTime.now();
 	
 	public User() {
 		
@@ -64,7 +63,6 @@ public class User {
 		this.lastName = lastName;
 		this.password = password;
 		this.email = email;
-		this.role = role;
 		this.mobile = mobile;
 		this.address = address;
 		this.paymentInformation = paymentInformation;
@@ -115,14 +113,6 @@ public class User {
 		this.email = email;
 	}
 
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
 	public String getMobile() {
 		return mobile;
 	}
@@ -170,10 +160,11 @@ public class User {
 	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
-	
-	
-	
 }
+
+
+
+
 
 
 
